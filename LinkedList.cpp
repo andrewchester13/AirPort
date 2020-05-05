@@ -19,7 +19,6 @@ void LinkedList::addToList(person* newGuy)
     {
         newGuy->setNextPerson(this->head);
         this->head = newGuy;
-        this->count++;
     }
 
 
@@ -108,7 +107,7 @@ int LinkedList::findIndex(person* guyToFind)
     {
     if(currPerson->getPayload() == guyToFind->getPayload())
     {
-        index ++; 
+         
         return index;  
     }
     else 

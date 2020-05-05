@@ -31,16 +31,14 @@ void node::GetPeopleInroom()
     else
     {
         cout <<"Warning: there are others here with you... they may have a bomb\n";
-    
+        cout<<"If you would like to pick them up press 'P'\n";
     }
     
 }
-void node::playGame(person* mainChar)
+void node::playGame(person* mainChar, person* bomber)
 {
     //Just have to enable to play game!!!!
     cout <<"you are currently at: " + this->locationName << "\n";
-    
-    this->peopleInRoom->addToList(mainChar);
     this->GetPeopleInroom();
     if(this->up)
     {
@@ -51,11 +49,33 @@ void node::playGame(person* mainChar)
         cin >> decision;
         if(decision == "yes")
         {
-            this->up->playGame(mainChar);
+            this->up->playGame(mainChar, bomber);
         }
         if(decision == "Q")
         {
             return;
+        }
+        if(decision == "P")
+        {
+
+            
+            mainChar->setPersonToGrab(bomber);
+            this->removePeopleFromRoom(bomber);
+            cout<<"You have grabbed the bomber\n";
+            cout<<" ";
+            this->playGame(mainChar, bomber);
+            
+        }
+        else if(decision == "D")
+        {
+            this->setPeopleInRoom(mainChar->getPersonToGrab());
+            mainChar->removePersonToGrab();
+            cout<< "You have dropped the bomber off at: "<< this->locationName<< "\n";
+            if(this->locationName == "interogation 1" || this->locationName == "interogation 2")
+            {
+                cout<< "You won! You saved everyone! \n";
+                return;
+            }
         }
 
     }
@@ -68,11 +88,33 @@ void node::playGame(person* mainChar)
         cin >> decision;
         if(decision == "yes")
         {
-            this->down->playGame(mainChar);
+            this->down->playGame(mainChar, bomber);
         }
         if(decision == "Q")
         {
             return;
+        }
+        if(decision == "P")
+        {
+
+            
+            mainChar->setPersonToGrab(bomber);
+            this->removePeopleFromRoom(bomber);
+            cout<<"You have grabbed the bomber\n";
+            cout<<" ";
+            this->playGame(mainChar, bomber);
+            
+        }
+       else if(decision == "D")
+        {
+            this->setPeopleInRoom(mainChar->getPersonToGrab());
+            mainChar->removePersonToGrab();
+            cout<< "You have dropped the bomber off at: "<< this->getLocationName()<< "\n";
+            if(this->locationName == "interogation 1" || this->locationName == "interogation 2")
+            {
+                cout<< "You won! You saved everyone! \n";
+                return;
+            }
         }
 
     }
@@ -85,11 +127,33 @@ void node::playGame(person* mainChar)
         cin >> decision;
         if(decision == "yes")
         {
-            this->left->playGame(mainChar);
+            this->left->playGame(mainChar, bomber);
         }
         if(decision == "Q")
         {
             return;
+        }
+        if(decision == "P")
+        {
+
+            
+            mainChar->setPersonToGrab(bomber);
+            this->removePeopleFromRoom(bomber);
+            cout<<"You have grabbed the bomber\n";
+            cout<<" ";
+            this->playGame(mainChar, bomber);
+            
+        }
+       else if(decision == "D")
+        {
+            this->setPeopleInRoom(mainChar->getPersonToGrab());
+            mainChar->removePersonToGrab();
+            cout<< "You have dropped the bomber off at: "<< this->getLocationName()<< "\n";
+            if(this->locationName == "interogation 1" || this->locationName == "interogation 2")
+            {
+                cout<< "You won! You saved everyone! \n";
+                return;
+            }
         }
 
     }
@@ -102,11 +166,33 @@ void node::playGame(person* mainChar)
         cin >> decision;
         if(decision == "yes")
         {
-            this->right->playGame(mainChar);
+            this->right->playGame(mainChar, bomber);
         }
         if(decision == "Q")
         {
             return;
+        }
+        if(decision == "P")
+        {
+
+            
+            mainChar->setPersonToGrab(bomber);
+            this->removePeopleFromRoom(bomber);
+            cout<<"You have grabbed the bomber\n";
+            cout<<" ";
+            this->playGame(mainChar, bomber);
+            
+        }
+       else if(decision == "D")
+        {
+            this->setPeopleInRoom(mainChar->getPersonToGrab());
+            mainChar->removePersonToGrab();
+            cout<< "You have dropped the bomber off at: "<< this->getLocationName()<< "\n";
+            if(this->locationName == "interogation 1" || this->locationName == "interogation 2")
+            {
+                cout<< "You won! You saved everyone! \n";
+                return;
+            }
         }
     }
 }

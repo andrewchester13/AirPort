@@ -55,28 +55,28 @@ int main()
     t2g1->setPossiblePaths(t2, "down");
     t2g2->setPossiblePaths(t2, "left");
     t2g3->setPossiblePaths(t2, "up");
+    i1->setPossiblePaths(s1, "down");
+    i2->setPossiblePaths(s2, "down");
 
     //creating the piolt 
     person* piolt = new person(2, "piolt");
     person* bomber = new person(1,"bomber");
     //door creation 
     door* clearance = new door(2);
-    coffeeShop->setPeopleInRoom(bomber);
-    coffeeShop->setPeopleInRoom(piolt);
-    coffeeShop->GetPeopleInroom();
-    coffeeShop->removePeopleFromRoom(bomber);
-    coffeeShop->removePeopleFromRoom(piolt);
-    coffeeShop->GetPeopleInroom();
-/*
+
+
     //running the game
     cout << "welcome to the airport! Please have no bombs with you!\n";
     cout<<"if you have a bomb... we will kill you faster than COVID takes out old people \n";
+    cout<<"you are the piolt! Find the bomber to save everyone\n";
+    cout<<"take the bomber to the interogation room as soon as you find him!\n";
     cout << "_______________________________________________________________________________\n";
-    lobby->playGame(piolt);
+    lobby->setPeopleInRoom(bomber);
+    lobby->playGame(piolt,bomber);
     cout << "_______________________________________________________________________________\n";
     cout<<"thank you for not having bombs... have a good flight!!\n";
     
-*/
+
     
 
 

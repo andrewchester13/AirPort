@@ -10,7 +10,7 @@ class node
         string getLocationName();
         string getPossiblePath(string direction);
         void setPossiblePaths(node* n, string direction);
-        void playGame(person* mainChar);
+        void playGame(person* mainChar, person* bomber);
         void GetPeopleInroom();
         void setPeopleInRoom(person* stanger);
         void removePeopleFromRoom(person* person);

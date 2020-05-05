@@ -13,11 +13,15 @@ class person
         string getPayload();
         person* getNextPerson();
         void setNextPerson(person* nextguy);
+        void setPersonToGrab(person* suspect);
+        person* getPersonToGrab();
+        void removePersonToGrab();
 
 
     private: 
         int securityLevel; 
         string payload;
-        person* nextPerson; 
+        person* nextPerson;
+        person* PersonToGrab; 
 };
 #endif

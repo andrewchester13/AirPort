@@ -7,6 +7,8 @@ person::person(int securityLevel, string payload)
 {
     this->securityLevel = securityLevel;
     this->payload = payload; 
+    this->PersonToGrab = 0; 
+
 
 }
 void person::setNextPerson(person* nextguy)
@@ -26,4 +28,18 @@ int person::getSecuirtyLevel()
 string person::getPayload()
 {
     return this->payload; 
+}
+void person::setPersonToGrab(person* suspect)
+{
+    this->PersonToGrab = suspect; 
+}
+person* person::getPersonToGrab()
+{
+    return this->PersonToGrab; 
+
+}
+void person::removePersonToGrab()
+{
+    this->PersonToGrab = 0;  
+
 }
